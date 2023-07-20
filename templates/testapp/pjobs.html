@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/pdemo.css'%}">
+  </head>
+  <body>
+
+    <div class="container" align='center'>
+      <div class="jumbotron">
+        <h1>Welcome to Pune jobs portal</h1>
+      </div>
+    </div>
+
+    {% if jobdetails %}
+      <table class="table">
+        <thead class="thead-dark">
+          <th>Date</th>
+          <th>Company</th>
+          <th>Title</th>
+          <th>Elegibility</th>
+          <th>Address</th>
+          <th>Email</th>
+          <th>Phonenumber</th>
+        </thead>
+        {% for p in jobdetails %}
+        <tr>
+          <td>{{p.date}}</td>
+          <td>{{p.company}}</td>
+          <td>{{p.title}}</td>
+          <td>{{p.elegibility}}</td>
+          <td>{{p.address}}</td>
+          <td>{{p.email}}</td>
+          <td>{{p.phonenumber}}</td>
+        </tr>
+        {% endfor %}
+      </table>
+    {% else %}
+      <p>no jobs available on current search</p>
+    {% endif %}
+  </body>
+</html>
